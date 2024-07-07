@@ -59,4 +59,9 @@ cover/
 dmypy.json
 
 # venv
-.surge
+.vektor/
+.venv/
+venv/
+
+# secrets
+/.secrets
