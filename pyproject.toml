@@ -1,6 +1,6 @@
 [project]
 name = "vektor"
-version = "0.1.0"
+version = "0.2.0"
 description = "Vektor is a library to quickly and easily generate configurable load for web apps."
 authors = [
     {name = "Taimur Ibrahim", email = "tai.him18@gmail.com"},
