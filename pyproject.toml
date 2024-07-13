@@ -34,14 +34,15 @@ dev = [
 ]
 
 [tool.pdm.scripts]
-start.cmd = "func start"
 lint.cmd = "pre-commit run --all-files"
 test.cmd = "pytest"
 coverage.cmd = "pytest --disable-warnings --cov --cov-report xml"
 coverage.env = { "PYTHONPATH" = "." }
+mypy.cmd = "mypy --verbose"
 
 # linters configuration below
 [tool.ruff]
+exclude = ["e2e"]
 line-length = 120
 target-version = "py311"
 lint.select = [
@@ -89,7 +90,7 @@ lint.ignore = [
     "E501", # pycodestyle line too long, handled by ruff format
     "ISC001", # ruff formatter incompatible
 ]
-src = ["src", "tests", "e2e"]
+src = ["src", "tests"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.*" = [
@@ -133,7 +134,7 @@ known-first-party = ["src", "e2e", "tests"]
 
 [tool.mypy]
 packages = ["tests", "src"]
-python_version = "3.11"
+python_version = "3.12"
 plugins = ["pydantic.mypy"]
 disallow_any_generics = false
 disallow_untyped_decorators = false
@@ -160,3 +161,6 @@ fail_under = 95
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
+
+[tool.codespell]
+ignore-words-list = ["vektor"]

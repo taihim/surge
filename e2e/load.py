@@ -1,9 +1,13 @@
+# type: ignore
+
+from typing import cast
+
 import asyncio
 
 import httpx
 
 
-async def call_url(client):
+async def call_url(client: httpx.AsyncClient) -> None:
     url = "http://test.example/predict"
     files = {
         "image": ("dishwasher.JPEG", open("dishwasher.JPEG", "rb"), "image/jpeg"),
@@ -11,7 +15,7 @@ async def call_url(client):
     }
     response = await client.request(method="POST", url=url, files=files, timeout=None)
 
-    return response
+    return cast(response, None)
 
 
 async def main() -> None:
