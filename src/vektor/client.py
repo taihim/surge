@@ -23,9 +23,10 @@ class VektorClient:
         self._client = AsyncClient(timeout=timeout)
 
     @classmethod
-    def get_or_create_instance(cls, base_url: str | None = None, headers: dict[str, str] | None = None, timeout: float = 5.0) -> "VektorClient":
+    def get_or_create_instance(cls, client_id: str | None, base_url: str | None = None, headers: dict[str, str] | None = None, timeout: float = 5.0) -> "VektorClient":
         """Gets or creates an instance of the client."""
-        client_id = str(uuid4())
+        if not client_id:
+            client_id = str(uuid4())
 
         if client_id not in cls._instances:
             cls._instances[client_id] = VektorClient(base_url, headers, timeout)
