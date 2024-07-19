@@ -1,3 +1,4 @@
+"""Common datatypes used across the vektor module."""
 from typing import TypedDict
 
 
