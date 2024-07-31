@@ -1,4 +1,4 @@
-"""Common datatypes used across the vektor module."""
+"""Common datatypes."""
 from typing import TypedDict
 
 
